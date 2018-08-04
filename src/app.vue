@@ -62,7 +62,8 @@
 
 <script>
 // Import Routes
-import routes from './routes.js'
+import routes from './routes.js';
+import { bsSetupRem } from './common/utils.js';
 
 export default {
   data() {
@@ -71,11 +72,20 @@ export default {
       f7params: {
         id: 'io.framework7.testapp', // App bundle ID
         name: 'Framework7', // App name
-        theme: 'auto', // Automatic theme detection
+        theme: 'ios', // Automatic theme detection
         // App routes
         routes: routes,
+        view: {
+          animate: true,
+          pushState: true,
+          history: true,
+          pushStateSeparator: '#',
+        }
       },
     }
+  },
+  mounted() {
+    bsSetupRem();
   }
 }
 </script>
